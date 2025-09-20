@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;500&display=swap');
+
+
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  height: auto;
+  background-color: black;
+}
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+
+nav{
+    background-color: gray;
+}
+
+
+.hero{
+    background: url(images/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* height: 70vh; */
+    background-color: gray;
+    padding: 150px;
+}
+
+.hero h1{
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero p{
+  font-size: 1.5rem;
+  color: white;
+}
+
+
+.features{
+  margin: 0;
+  padding: 50px;
+}
+
+
+.features img {
+  object-fit: cover;
+  height: 200px; /* optional fixed height */
+  width: 100%;   /* makes sure it fills card width */
+}
+
+.card{
+  transition: 0.3s ease;
+  
+}
+
+
+
+.card:hover{
+  transform: translate(0,-7px);
+  box-shadow: 0 0 10px black;
+  
+}
+
+
+footer{
+  color: white;
+  padding: 10px;
+}
