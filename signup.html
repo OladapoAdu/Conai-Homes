@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Signup - Conai Homes</title>
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
   <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
 </head>
 <body class="bg-light">
 
+  <!-- NAV BAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">CONAI HOMES</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <!--NAV BAR  -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container">
-                <a class="navbar-brand fw-bold" href="index.html">CONAI HOMES</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    </ul>
-                </div>
-                </div>
-        </nav>
-
+  <!-- Signup card -->
   <div class="container d-flex align-items-center justify-content-center min-vh-100 mt-5 mb-5">
-    <div class="card shadow-lg p-4" style="max-width: 450px; width: 100%;">
-      <h3 class="text-center mb-4">Create an Account</h3>
+    <div class="card shadow-lg p-4" style="max-width: 520px; width: 100%;">
+      <h3 class="text-center text-dark mb-4">Create an Account</h3>
 
-      <form id="signupForm">
+      <form id="signupForm" novalidate>
         <!-- First Name -->
         <div class="mb-3">
-          <label for="name" class="form-label">First Name</label>
-          <input type="text" class="form-control" id="name" placeholder="John" required>
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="John" required>
         </div>
-
 
         <!-- Last Name -->
         <div class="mb-3">
-          <label for="name" class="form-label">Last Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Doe" required>
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
         </div>
 
         <!-- Email -->
@@ -51,10 +56,25 @@
         </div>
 
         <!-- Password -->
-        <div class="mb-3">
+        <div class="mb-3 position-relative">
           <label for="password" class="form-label">Password</label>
           <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+          <span class="position-absolute top-50 end-0 me-3" style="cursor:pointer;"
+                onclick="togglePassword('password', this)" title="Show / hide password" aria-hidden="true">
+            <i class="bi bi-eye-slash"></i>
+          </span>
         </div>
+
+        <!-- Confirm Password -->
+        <div class="mb-1 position-relative">
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password" required>
+          <span class="position-absolute top-50 end-0 me-3" style="cursor:pointer;"
+                onclick="togglePassword('confirmPassword', this)" title="Show / hide password" aria-hidden="true">
+            <i class="bi bi-eye-slash"></i>
+          </span>
+        </div>
+        <div id="passwordError" class="text-danger small mb-3 d-none" role="alert">Passwords do not match.</div>
 
         <!-- Role -->
         <div class="mb-3">
@@ -66,16 +86,104 @@
           </select>
         </div>
 
+        <!-- Agent-specific fields (hidden by default) -->
+        <div id="agentFields" class="d-none border rounded p-3 mb-3">
+          <h6 class="mb-3">Agent details</h6>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" placeholder="+234 812 345 6789">
+          </div>
+
+          <div class="mb-3">
+            <label for="agency" class="form-label">Agency / Company</label>
+            <input type="text" class="form-control" id="agency" placeholder="Conai Realty">
+          </div>
+
+          <div class="mb-3">
+            <label for="license" class="form-label">License / Registration No.</label>
+            <input type="text" class="form-control" id="license" placeholder="AGT12345">
+          </div>
+        </div>
+
         <!-- Submit -->
         <button type="submit" class="btn btn-success w-100">Sign Up</button>
       </form>
 
-      <p class="text-center mt-3">
+      <p class="text-center mt-3 mb-0">
         Already have an account? <a href="login.html">Login</a>
       </p>
     </div>
   </div>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Page JS -->
+  <script>
+    // Toggle password visibility for any inputId; iconElement is the span element clicked
+    function togglePassword(inputId, iconElement) {
+      const input = document.getElementById(inputId);
+      const icon = iconElement.querySelector("i");
+      if (!input || !icon) return;
+
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("bi-eye-slash");
+        icon.classList.add("bi-eye");
+      } else {
+        input.type = "password";
+        icon.classList.remove("bi-eye");
+        icon.classList.add("bi-eye-slash");
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const roleSelect = document.getElementById('role');
+      const agentFields = document.getElementById('agentFields');
+      const phone = document.getElementById('phone');
+      const agency = document.getElementById('agency');
+      const license = document.getElementById('license');
+      const signupForm = document.getElementById('signupForm');
+      const password = document.getElementById('password');
+      const confirmPassword = document.getElementById('confirmPassword');
+      const passwordError = document.getElementById('passwordError');
+
+      // Show/hide agent fields and toggle 'required' attribute
+      function updateAgentFields() {
+        if (roleSelect.value === 'agent') {
+          agentFields.classList.remove('d-none');
+          phone.required = true;
+          agency.required = true;
+          license.required = true;
+        } else {
+          agentFields.classList.add('d-none');
+          phone.required = false;
+          agency.required = false;
+          license.required = false;
+        }
+      }
+
+      roleSelect.addEventListener('change', updateAgentFields);
+      updateAgentFields(); // initial call (in case of preselected value)
+
+      // Simple password match validation on submit
+      signupForm.addEventListener('submit', function (e) {
+        passwordError.classList.add('d-none');
+
+        if (password.value !== confirmPassword.value) {
+          e.preventDefault();
+          passwordError.classList.remove('d-none');
+          confirmPassword.focus();
+          return false;
+        }
+
+        // Form is valid (frontend). Let it submit (or hook up your logic here).
+        // If you later want to handle signup on the frontend (simulate/stub),
+        // you could preventDefault() and save to localStorage here.
+        return true;
+      });
+    });
+  </script>
 </body>
 </html>
