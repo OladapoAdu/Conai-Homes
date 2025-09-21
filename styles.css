@@ -2,6 +2,7 @@
 
 
 
+
 body {
   font-family: 'Open Sans', sans-serif;
   height: auto;
@@ -14,6 +15,9 @@ h1, h2, h3 {
 
 /* Preloader full-screen overlay */
 #preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: #fff;
@@ -33,11 +37,11 @@ h1, h2, h3 {
 
 @keyframes pulse {
   0%, 100% {
-    size: 300px;
+    transform: scale(1);
     opacity: 1;
   }
   50% {
-    size: 100px;
+    transform: scale(1.5);
     opacity: 0.6;
   }
 }
