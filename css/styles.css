@@ -29,7 +29,7 @@ body {
 /* Navbar */
 .navbar {
   background: #222;
-  padding: 1rem;
+  padding: 0.5rem;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -137,6 +137,27 @@ body {
   background: #218838;
 }
 
+/* About */
+.about, .cta{
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+
+.cta{
+  background: #f4f4f4;
+}
+
+.cta h2{
+  color: #000;
+}
+
+.cta p{
+  color: #000;
+}
+
+
+
 /* Features */
 .features {
   padding: 50px 20px;
@@ -206,7 +227,7 @@ footer {
     flex-direction: column;
     background: #333;
     position: absolute;
-    top: 60px; right: 0;
+    top: 45px; right: 0;
     width: 200px;
     padding: 1rem;
   }
