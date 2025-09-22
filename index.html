@@ -1,131 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="styles.css">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conai Homes</title>
-    <script src="index.js"></script>
-    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
-
-        <!-- BOOTSTRAP CSS -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conai Homes</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
+  <script src="index.js" defer></script>
 </head>
 <body>
 
-    <!-- PRELOADER -->
-    <div id="preloader">
-            <img class="pulse-loader" src="images/logo-dark.png" width="300px" height="300px">
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <img class="pulse-loader" src="images/logo-dark.png" width="300" height="300" alt="Loading...">
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a class="logo" href="index.html">CONAI HOMES</a>
+      <button class="hamburger" id="hamburger">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="listings.html">Buy</a></li>
+        <li><a href="agents.html">Agents</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+      </ul>
     </div>
+  </nav>
+
+  <section class="hero">
+  <h1>Welcome to Conai Homes</h1>
+  <p>Your trusted partner in finding dream homes with ease.</p>
+  <a href="signup.html" class="btn">Get Started</a>
+</section>
+
+<section class="about">
+  <h2>About Us</h2>
+  <p>At Conai Homes, we believe finding a home should be simple, transparent, 
+     and enjoyable. Our mission is to connect people with the perfect living 
+     spaces tailored to their lifestyle and needs.</p>
+</section>
+
+<section class="cta">
+  <h2>Join the Experience</h2>
+  <p>Sign up today and explore exclusive listings, smart recommendations, 
+     and a seamless way to discover your next home.</p>
+  <a href="signup.html" class="btn">Sign Up Now</a>
+</section>
 
 
-        <!--NAV BAR  -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-                <div class="container">
-                    <a class="navbar-brand fw-bold" href="#">CONAI HOMES</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="listings.html">Buy</a></li>
-                        <li class="nav-item"><a class="nav-link" href="agents.html">Agents</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
-                        </ul>
-                    </div>
-                    
-                </div>
-        </nav>
+  <!-- FEATURES -->
+  <section class="features">
+    <h2>Featured Properties</h2>
 
-       
-       
-       <!-- HERO SECTION -->
-        <section class=" container-fluid hero">
-            <div class="hero-content">
-                <h1>Find Your Dream Home</h1>
-                <p>Search from thousands of listings in your area</p>
-            </div>
-
-            <div>
-                <form class="row g-2 justify-content-center mt-4">
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Location">
-                    </div>
-                    <div class="col-md-3">
-                        <select name="" id="" class="form-select">
-                            <option>Property Type</option>
-                            <option>Apartment</option>
-                            <option>House</option>
-                            <option>Land</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-3">
-                        <input type="number" class="form-control" placeholder="Max Price (₦)">
-                        </div>
-                        <div class="col-md-2">
-                        <button type="submit" class="btn btn-success w-100">Search</button>
-                    </div>
-                </form>
-            </div>
-       </section>
-
-
-
-       
-       <!-- FEATURES -->
-       <section class="container-fluid features">
-            <h2 class="text-center my-5">Featured Properties</h2>
-            
-            <div class="row justify-content-center align-items-center gap-5 g-0">
-                <div class="card" style="width: 20rem;">
-                    <img src="images/card-house1.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">$250,000 - 3 Bed Apartment</h5>
-                        <p class="card-text">Located in Lagos, modern design with spacious living area.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 20rem;">
-                    <img src="images/card-house2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">$450,000 - 4 Bed Duplex</h5>
-                        <p class="card-text">Located in Abuja, luxury duplex with private garden.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 20rem;">
-                    <img src="images/card-house3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">₦600,000 - 5 Bed Villa</h5>
-                        <p class="card-text">Located in Port Harcourt, fully furnished villa with pool.</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-
-            </div>
-            
-
-        </section>
-
-            
+    <div class="card-grid">
+      <div class="card">
+        <img src="images/card-house1.jpg" alt="Apartment">
+        <div class="card-body">
+          <h5>$250,000 - 3 Bed Apartment</h5>
+          <p>Located in Lagos, modern design with spacious living area.</p>
+          <a href="#" class="btn">View Details</a>
         </div>
-       </section>
+      </div>
 
+      <div class="card">
+        <img src="images/card-house2.jpg" alt="Duplex">
+        <div class="card-body">
+          <h5>$450,000 - 4 Bed Duplex</h5>
+          <p>Located in Abuja, luxury duplex with private garden.</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
 
+      <div class="card">
+        <img src="images/card-house3.jpg" alt="Villa">
+        <div class="card-body">
+          <h5>₦600,000 - 5 Bed Villa</h5>
+          <p>Located in Port Harcourt, fully furnished villa with pool.</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-       <!-- FOOTER -->
-        <footer class="text-center bg-dark">
-            <div class="container">
-                <p>&copy; 2025 Cónaí Homes | A Project By Destiny Oladapo Adu</p>
-            </div>
-        </footer>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Cónaí Homes | A Project By Destiny Oladapo Adu</p>
+    </div>
+  </footer>
 
-
-       <!-- BOOTSTRAP JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

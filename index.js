@@ -8,6 +8,17 @@ window.addEventListener("load", function(){
 
 
 
+
+// Hamburger menu
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+
+
+
 // AGENTS PAGE
 // ====================================================================================================================================================================================================================
 // AGENTS DATA
