@@ -104,60 +104,8 @@
   </div>
 
   <!-- Page JS -->
-  <script>
-    // Toggle password visibility
-    function togglePassword(inputId, iconElement) {
-      const input = document.getElementById(inputId);
-      if (input.type === "password") {
-        input.type = "text";
-        iconElement.textContent = "🙈";
-      } else {
-        input.type = "password";
-        iconElement.textContent = "👁️";
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const roleSelect = document.getElementById('role');
-      const agentFields = document.getElementById('agentFields');
-      const phone = document.getElementById('phone');
-      const agency = document.getElementById('agency');
-      const license = document.getElementById('license');
-      const signupForm = document.getElementById('signupForm');
-      const password = document.getElementById('password');
-      const confirmPassword = document.getElementById('confirmPassword');
-      const passwordError = document.getElementById('passwordError');
-
-      // Show/hide agent fields
-      function updateAgentFields() {
-        if (roleSelect.value === 'agent') {
-          agentFields.classList.remove('hidden');
-          phone.required = true;
-          agency.required = true;
-          license.required = true;
-        } else {
-          agentFields.classList.add('hidden');
-          phone.required = false;
-          agency.required = false;
-          license.required = false;
-        }
-      }
-
-      roleSelect.addEventListener('change', updateAgentFields);
-      updateAgentFields();
-
-      // Password validation
-      signupForm.addEventListener('submit', function (e) {
-        passwordError.classList.add('hidden');
-        if (password.value !== confirmPassword.value) {
-          e.preventDefault();
-          passwordError.classList.remove('hidden');
-          confirmPassword.focus();
-          return false;
-        }
-        return true;
-      });
-    });
+  <script src="js/main.js">
+    
   </script>
 </body>
 </html>

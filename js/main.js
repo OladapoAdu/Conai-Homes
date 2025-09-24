@@ -18,7 +18,7 @@ if (hamburger && navLinks) {
   });
 }
 
-// SIGNUP PAGE LOGIC
+// SIGNUP PAGE
 document.addEventListener("DOMContentLoaded", () => {
   const signupForm = document.getElementById("signupForm");
 
@@ -109,14 +109,18 @@ if (agentsRow) {
     },
   ];
 
+  // Build agent cards dynamically
   agents.forEach((agent) => {
-    agentsRow.innerHTML += `
-      <div class="agent-card">
-        <img src="${agent.image}" alt="${agent.name}">
-        <h5>${agent.name}</h5>
-        <p>${agent.role}</p>
-        <a href="mailto:${agent.email}" class="btn">Contact</a>
-      </div>
+    const card = document.createElement("div");
+    card.classList.add("agent-card");
+
+    card.innerHTML = `
+      <img src="${agent.image}" alt="${agent.name}">
+      <h3>${agent.name}</h3>
+      <p>${agent.role}</p>
+      <a href="mailto:${agent.email}" class="contact-btn">Contact</a>
     `;
+
+    agentsRow.appendChild(card);
   });
 }
