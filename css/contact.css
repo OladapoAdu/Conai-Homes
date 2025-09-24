@@ -172,4 +172,16 @@ form input:focus, form textarea:focus {
   .nav-links li {
     margin: 0.5rem 0;
   }
+
+  form{
+    width: 100%;
+  }
+
+  .row{
+    width: 100%;
+  }
+
+  .col{
+    width: 90%;
+  }
 }

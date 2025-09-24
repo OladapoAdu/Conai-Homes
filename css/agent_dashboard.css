@@ -33,11 +33,11 @@ body {
   color: white;
   display: flex;
   align-items: center;
-  transition: 0.3s ease;
+  transition: border-bottom 0.3s ease;
 }
 
 .navbar a:hover {
-  color: blue;
+  border-bottom: 2px solid #fff;
 }
 
 .material-icons {
