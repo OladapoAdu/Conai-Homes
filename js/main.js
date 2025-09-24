@@ -87,25 +87,25 @@ if (agentsRow) {
       name: "John Doe",
       role: "Lagos Specialist",
       email: "john@example.com",
-      image: "images/agent1.jpg",
+      image: "images/pfp.png",
     },
     {
       name: "Jane Smith",
       role: "Abuja Specialist",
       email: "jane@example.com",
-      image: "images/agent2.jpg",
+      image: "images/pfp.png",
     },
     {
       name: "Ikpeba Victor",
       role: "Port Harcourt Specialist",
       email: "vic@example.com",
-      image: "images/agent3.jpg",
+      image: "images/pfp.png",
     },
     {
       name: "Owen Michael",
       role: "Ibadan Specialist",
       email: "owen@example.com",
-      image: "images/agent4.jpg",
+      image: "images/pfp.png",
     },
   ];
 
