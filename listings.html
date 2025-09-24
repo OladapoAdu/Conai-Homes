@@ -15,7 +15,6 @@
       <button class="hamburger" id="hamburger">&#9776;</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
-        <li><a href="buy-rent.html">Buy/Rent</a></li>
         <li><a href="agents.html">Agents</a></li>
         <li><a href="login.html">Login</a></li>
       </ul>
@@ -47,30 +46,9 @@
     </div>
   </section>
 
-  <!-- PROPERTY DETAILS -->
-  <section class="property container">
-    <div class="property-content">
-      <div class="property-image">
-        <img src="images/house1.jpg" alt="Luxury Apartment">
-      </div>
-
-      <div class="property-info">
-        <h2>Luxury Apartment</h2>
-        <p class="location">📍 Lagos, Nigeria</p>
-        <h4 class="price">₦120,000,000 (Buy)</h4>
-        <p>
-          This luxury apartment offers modern architecture, spacious living areas, and a prime location in the heart of Lagos. 
-          Perfect for families or professionals seeking a stylish and secure home.
-        </p>
-        <ul>
-          <li>🏠 4 Bedrooms</li>
-          <li>🛁 3 Bathrooms</li>
-          <li>📐 350 sqm</li>
-          <li>🚗 Parking Available</li>
-        </ul>
-        <a href="agents.html" class="btn">Contact Agent</a>
-      </div>
-    </div>
+  <!-- PROPERTY LISTINGS -->
+  <section class="property-list container" id="propertyList">
+    <!-- Properties will be injected here -->
   </section>
 
   <!-- FOOTER -->
@@ -78,22 +56,8 @@
     <p>&copy; 2025 Conai Homes. All Rights Reserved.</p>
   </footer>
 
-  <script>
-    // Hamburger toggle
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("navLinks");
-    hamburger.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
-
-    // Search filter (placeholder functionality)
-    const searchForm = document.getElementById("searchForm");
-    searchForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const type = document.getElementById("propertyType").value;
-      const price = document.getElementById("priceRange").value;
-      alert(`Searching for: ${type || "Any type"} within ${price || "Any price"}`);
-    });
+  <script src="js/main.js">
+    
   </script>
 </body>
 </html>

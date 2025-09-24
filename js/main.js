@@ -124,3 +124,125 @@ if (agentsRow) {
     agentsRow.appendChild(card);
   });
 }
+
+
+
+
+
+
+// PROPERTY LISTINGS
+// // Toggle nav
+//     const hamburger = document.getElementById("hamburger");
+//     const navLinks = document.getElementById("navLinks");
+//     hamburger.addEventListener("click", () => {
+//       navLinks.classList.toggle("show");
+//     });
+
+    // Property data
+    const properties = [
+      {
+        type: "apartment",
+        location: "Lagos, Nigeria",
+        price: 120000000,
+        description: "This luxury apartment offers modern architecture, spacious living areas, and a prime location in the heart of Lagos.",
+        bedrooms: 4,
+        bathrooms: 3,
+        area: 350,
+        parking: true,
+        image: "images/card-house1.jpg"
+      },
+      {
+        type: "house",
+        location: "Abuja, Nigeria",
+        price: 85000000,
+        description: "A spacious family home in a quiet neighborhood with excellent security and modern amenities.",
+        bedrooms: 5,
+        bathrooms: 4,
+        area: 420,
+        parking: true,
+        image: "images/card-house2.jpg"
+      },
+      {
+        type: "duplex",
+        location: "Port Harcourt, Nigeria",
+        price: 200000000,
+        description: "A stunning duplex with river views, modern interior designs, and large recreational spaces.",
+        bedrooms: 6,
+        bathrooms: 5,
+        area: 500,
+        parking: true,
+        image: "images/card-house3.jpg"
+      },
+      {
+        type: "land",
+        location: "Ibadan, Nigeria",
+        price: 45000000,
+        description: "Well-situated land for residential or commercial development in a fast-growing area.",
+        bedrooms: 0,
+        bathrooms: 0,
+        area: 800,
+        parking: false,
+        image: "images/land.jpg"
+      }
+    ];
+
+    const propertyList = document.getElementById("propertyList");
+
+    function renderProperties(list) {
+      propertyList.innerHTML = "";
+      if (list.length === 0) {
+        propertyList.innerHTML = "<p>No properties match your search.</p>";
+        return;
+      }
+      list.forEach((p) => {
+        propertyList.innerHTML += `
+          <div class="property-content">
+            <div class="property-image">
+              <img src="${p.image}" alt="${p.type}">
+            </div>
+            <div class="property-info">
+              <h2>${p.type.charAt(0).toUpperCase() + p.type.slice(1)}</h2>
+              <p class="location">📍 ${p.location}</p>
+              <h4 class="price">₦${p.price.toLocaleString()} ${p.type === "land" ? "(Sale)" : "(Buy)"}</h4>
+              <p>${p.description}</p>
+              <ul>
+                <li>🏠 ${p.bedrooms} Bedrooms</li>
+                <li>🛁 ${p.bathrooms} Bathrooms</li>
+                <li>📐 ${p.area} sqm</li>
+                <li>🚗 ${p.parking ? "Parking Available" : "No Parking"}</li>
+              </ul>
+              <a href="agents.html" class="btn">Contact Agent</a>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Initial render
+    renderProperties(properties);
+
+    // Search functionality
+    const searchForm = document.getElementById("searchForm");
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const type = document.getElementById("propertyType").value;
+      const price = document.getElementById("priceRange").value;
+
+      let filtered = properties;
+
+      if (type) {
+        filtered = filtered.filter(p => p.type === type);
+      }
+
+      if (price) {
+        if (price.endsWith("+")) {
+          const min = parseInt(price.replace("+", ""));
+          filtered = filtered.filter(p => p.price >= min);
+        } else {
+          const [min, max] = price.split("-").map(Number);
+          filtered = filtered.filter(p => p.price >= min && p.price <= max);
+        }
+      }
+
+      renderProperties(filtered);
+    });

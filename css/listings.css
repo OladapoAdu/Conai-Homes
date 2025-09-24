@@ -48,7 +48,7 @@ body {
 }
 
 .nav-links li a:hover {
-  color: #0dba4b;
+  color: blue;
 }
 
 .nav-links li a::after {
@@ -58,7 +58,7 @@ body {
   height: 2px;
   left: 0;
   bottom: -5px;
-  background: #0dba4b;
+  background: blue;
   transition: width 0.3s;
 }
 
@@ -133,6 +133,7 @@ body {
 .property-image img {
   width: 100%;
   border-radius: 8px;
+  height: 100%;
 }
 
 .property-info h2 {
@@ -156,6 +157,12 @@ body {
 
 .property-info ul li {
   margin-bottom: 0.5rem;
+}
+
+.property-info a{
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
 }
 
 /* FOOTER */
